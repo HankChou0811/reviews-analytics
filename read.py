@@ -14,3 +14,13 @@ sum_len = 0
 for d in data: #每個D都是個字串
 	sum_len = sum_len + len(d)
 print('the average len of reviews is', sum_len/len(data))
+
+#篩選
+
+new = []
+for each in data: # 把這個清單中的東西一個一個拿出來, each就是每個留言
+	if len(each) < 100:
+		new.append(d) # 如果你的長度小於100，我就把你裝進NEW這個清單內
+ #要是放在for的框框內 那他就會一直印下去，只印一次就該跳出框框
+print('the total is', len(new),'which is shorter than 100 words')
+print(new[0])
