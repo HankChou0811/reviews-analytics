@@ -24,3 +24,17 @@ for each in data: # 把這個清單中的東西一個一個拿出來, each就是
  #要是放在for的框框內 那他就會一直印下去，只印一次就該跳出框框
 print('the total is', len(new),'which is shorter than 100 words')
 print(new[0])
+print(new[1])
+
+good = []
+for each in data:
+	if 'good' in each:
+		good.append(each)#如果留言裡有GOOD，那就從EACH裝進去GOOD的清單
+print('the total amount of "good" reviews is', len(good))
+print(good[10])
+
+#以下為快寫法
+good = [each for each in data if 'good' in each]
+#課程第4節第57站有講到
+#第一個each就是如果公式成立，要把什麼"東西"裝進good清單當中
+good = [each + 10 for each in data if 'bad' in each]
