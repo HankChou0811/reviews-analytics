@@ -10,6 +10,8 @@ with open('reviews.txt','r') as f:
 
 print('檔案讀取完畢，共有', len(data), '資料')
 
+
+
 sum_len = 0
 for d in data: #每個D都是個字串
 	sum_len = sum_len + len(d)
@@ -32,6 +34,35 @@ for each in data:
 		good.append(each)#如果留言裡有GOOD，那就從EACH裝進去GOOD的清單
 print('the total amount of "good" reviews is', len(good))
 print(good[10])
+
+
+#文字記數
+
+wc = {} # word_count
+for d in data:
+	words = d.split()
+	for word in words:
+		if word in wc:
+			wc[word] += 1
+		else:
+			wc[word] = 1 #新增第一次讀取到的字就是等於1
+
+
+for word in wc:
+	if wc[word] > 1000000:
+		print(word, wc[word]) 
+
+print(len(wc))
+print(wc['Allen'])
+
+while True:
+	word = input('please enter the word u want to search:')
+	if word == 'q':
+		break
+	print(word, 'appearing', wc[word], 'times')
+
+print('ty')
+
 
 #以下為快寫法
 good = [each for each in data if 'good' in each]
